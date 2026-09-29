@@ -1,0 +1,6 @@
+<view class="page">
+  <text class="eyebrow">第二阶段功能</text>
+  <text class="title">医学影像需在受保护查看器中打开</text>
+  <view class="card"><text class="body">DICOM 影像量较大且包含高度敏感信息。上线版本会在完成账号鉴权、短期访问链接和业务域名校验后，打开移动端 OHIF 页面。</text></view>
+  <button class="primary" bindtap="openViewer">打开受保护查看器</button>
+</view>

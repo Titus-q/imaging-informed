@@ -1,0 +1,44 @@
+.title { display: block; font-size: 52rpx; font-weight: 800; margin: 10rpx 0 24rpx; }
+.section-title { display: block; font-size: 34rpx; font-weight: 700; margin-bottom: 18rpx; }
+.report-text { white-space: pre-wrap; color: #405a51; font-size: 28rpx; line-height: 1.85; }
+
+/* 加载中 */
+.loading-box { margin-top: 160rpx; display: flex; flex-direction: column; align-items: center; }
+.loading-title { font-size: 34rpx; font-weight: 700; margin-bottom: 14rpx; }
+
+/* 免责 */
+.disclaimer { font-weight: 500; }
+
+/* 一句话总结 */
+.summary-text { display: block; font-size: 30rpx; line-height: 1.8; color: #2c4a42; }
+
+/* 异常清单 */
+.abnormal-item { border-left: 6rpx solid #dfe5dd; border-radius: 10rpx; background: #fafbf7; padding: 22rpx 20rpx; margin-bottom: 20rpx; }
+.abnormal-item.level-high { border-left-color: #c0392b; background: #fdf3f2; }
+.abnormal-item.level-medium { border-left-color: #e67e22; background: #fdf8f0; }
+.abnormal-item.level-low { border-left-color: #9db0a9; }
+.abnormal-head { display: flex; align-items: flex-start; margin-bottom: 14rpx; }
+.level-tag { flex-shrink: 0; font-size: 22rpx; font-weight: 700; padding: 6rpx 14rpx; border-radius: 8rpx; margin-right: 16rpx; margin-top: 2rpx; }
+.level-tag-high { background: #c0392b; color: #fff; }
+.level-tag-medium { background: #e67e22; color: #fff; }
+.level-tag-low { background: #9db0a9; color: #fff; }
+.abnormal-meaning { flex: 1; font-size: 29rpx; font-weight: 600; line-height: 1.65; color: #26423a; }
+.quote-box { background: #fffefb; border: 1rpx dashed #d4ddd6; border-radius: 10rpx; padding: 16rpx 18rpx; margin-bottom: 12rpx; }
+.quote-label { display: block; font-size: 20rpx; color: #8a9a94; letter-spacing: 2rpx; margin-bottom: 6rpx; }
+.quote-text { font-size: 25rpx; color: #5c6e67; line-height: 1.6; font-style: italic; }
+.suggestion { display: block; font-size: 26rpx; color: #156a5c; line-height: 1.6; }
+
+/* 逐句解读 */
+.line-item { padding: 18rpx 0; border-bottom: 1rpx solid #eef1ec; }
+.line-item:last-child { border-bottom: none; }
+.line-quote { display: block; font-size: 26rpx; color: #5c6e67; line-height: 1.6; margin-bottom: 8rpx; }
+.line-explain { display: block; font-size: 29rpx; color: #26423a; line-height: 1.7; }
+
+/* 问医生 */
+.question-item { display: flex; align-items: flex-start; padding: 14rpx 0; }
+.question-index { flex-shrink: 0; width: 40rpx; height: 40rpx; border-radius: 50%; background: #156a5c; color: #fff; font-size: 24rpx; text-align: center; line-height: 40rpx; margin-right: 18rpx; margin-top: 4rpx; }
+.question-text { flex: 1; font-size: 29rpx; line-height: 1.7; color: #26423a; }
+
+/* 原文开关 */
+.original-toggle { background: transparent; border: 1rpx solid #b8c9c1; color: #156a5c; border-radius: 16rpx; font-size: 28rpx; padding: 18rpx; margin-top: 28rpx; }
+.retry-link { color: #156a5c; font-weight: 700; text-decoration: underline; }

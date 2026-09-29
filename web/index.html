@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="医学影像与检查报告辅助理解原型" />
+    <title>影像知情｜检查资料辅助理解</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="影像知情首页"><span class="brand-mark">✦</span>影像知情 <small>beta</small></a>
+      <span class="privacy-pill">资料仅用于本次解读</span>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <p class="eyebrow">检查资料辅助理解</p>
+        <h1>把检查报告，<br />讲成你听得懂的话。</h1>
+        <p class="lede">上传报告照片或 PDF，我们会帮你整理原文、解释术语，并准备下次和医生沟通的问题。</p>
+        <p class="notice"><strong>请注意：</strong>这不是诊断工具，不能替代医生的判断。</p>
+      </section>
+
+      <section class="upload-grid" aria-label="上传资料">
+        <article class="upload-card report-card">
+          <div class="card-icon coral">▤</div>
+          <div>
+            <h2>检查报告</h2>
+            <p>照片、扫描件或 PDF</p>
+          </div>
+          <label class="file-drop" for="report-file">
+            <input id="report-file" type="file" accept="image/*,.pdf,.txt" />
+            <span class="upload-symbol">↑</span>
+            <strong>选择报告文件</strong>
+            <small>支持 JPG、PNG、PDF</small>
+          </label>
+          <p class="file-name" id="report-file-name">尚未选择文件</p>
+        </article>
+
+        <article class="upload-card dicom-card">
+          <div class="card-icon blue">◫</div>
+          <div>
+            <h2>医学影像 <span>可选</span></h2>
+            <p>CT、MRI 等 DICOM 资料</p>
+          </div>
+          <a class="secondary-button" href="https://viewer.ohif.org/local" target="_blank" rel="noopener noreferrer">在 OHIF 本地查看器中打开 <span>↗</span></a>
+          <p class="helper">将打开公开的 OHIF 本地查看页。请确认你同意其隐私政策后再选择真实影像文件。</p>
+        </article>
+      </section>
+
+      <section class="action-row">
+        <button id="analyze-button" class="primary-button" disabled>开始整理报告 <span>→</span></button>
+        <button id="demo-button" class="text-button">查看匿名演示结果</button>
+      </section>
+
+      <section id="processing" class="processing hidden" aria-live="polite">
+        <span class="spinner"></span><span>正在读取并整理报告…</span>
+      </section>
+
+      <section id="results" class="results hidden" aria-live="polite">
+        <div class="result-header">
+          <div>
+            <p class="eyebrow">整理结果</p>
+            <h2>胸部 CT 平扫报告 <span class="demo-badge">演示资料</span></h2>
+          </div>
+          <button id="restart-button" class="outline-button">重新开始</button>
+        </div>
+
+        <div class="safety-banner">此页基于报告文字生成，未对影像作出独立判断。请以正式报告和医生意见为准。</div>
+
+        <div class="result-grid">
+          <article class="summary-panel">
+            <p class="panel-label">一句话说明</p>
+            <h3>报告提示右肺上叶有一个较小结节，建议结合医生意见定期复查。</h3>
+            <p>这不是“已经确诊疾病”的意思；结节需要由医生结合大小、形态、个人病史和后续检查综合判断。</p>
+          </article>
+          <article class="facts-panel">
+            <p class="panel-label">报告中提到</p>
+            <dl>
+              <div><dt>检查部位</dt><dd>胸部</dd></div>
+              <div><dt>检查方式</dt><dd>CT 平扫</dd></div>
+              <div><dt>OCR 识别状态</dt><dd><span class="status-good">已核对演示文本</span></dd></div>
+            </dl>
+          </article>
+        </div>
+
+        <section class="content-section">
+          <div class="section-heading"><p class="eyebrow">需要和医生确认的内容</p><h2>报告提到的情况</h2></div>
+          <article class="finding-card">
+            <div class="finding-number">01</div>
+            <div class="finding-content">
+              <div class="finding-topline"><h3>右肺上叶小结节</h3><span class="tag">建议随访</span></div>
+              <p class="plain-language">“结节”是影像上看到的小块阴影的描述，不等同于某一种确定的疾病。报告中的“建议随访”通常表示医生希望通过后续检查观察它有没有变化。</p>
+              <details open>
+                <summary>查看报告原文依据</summary>
+                <blockquote>“右肺上叶见一枚微小结节影，建议随访复查。”</blockquote>
+                <p class="source-note">演示文本 · 生产版将显示页码、文本位置与 OCR 置信度。</p>
+              </details>
+            </div>
+          </article>
+        </section>
+
+        <section class="content-section questions-section">
+          <div class="section-heading"><p class="eyebrow">带着这些去问医生</p><h2>就诊问题清单</h2></div>
+          <ol class="question-list">
+            <li>这个结节的大小、位置和形态分别是什么？</li>
+            <li>结合我的年龄、吸烟史和既往检查，复查的时间建议是什么？</li>
+            <li>是否需要和过去的 CT 影像进行对比？</li>
+          </ol>
+        </section>
+
+        <section class="raw-text content-section">
+          <div class="section-heading"><p class="eyebrow">可追溯</p><h2>识别到的报告文字</h2></div>
+          <pre>检查所见：双肺纹理清晰。右肺上叶见一枚微小结节影。纵隔未见明显肿大淋巴结。
+检查意见：右肺上叶微小结节，建议随访复查。</pre>
+        </section>
+      </section>
+    </main>
+    <footer>影像知情 V0.1 · 辅助理解，不替代医疗建议</footer>
+    <script src="app.js"></script>
+  </body>
+</html>
+

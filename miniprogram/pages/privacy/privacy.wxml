@@ -1,0 +1,5 @@
+<view class="page">
+  <text class="eyebrow">提交前请阅读</text>
+  <text class="title">你的检查资料如何被处理</text>
+  <view class="card"><text class="body">上传的报告仅用于生成本次 OCR 结果与后续辅助理解。正式上线前，服务必须提供明确的保存期限、删除入口、访问控制和完整的隐私政策。本原型不应处理真实病历。</text></view>
+</view>

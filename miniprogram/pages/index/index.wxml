@@ -1,0 +1,43 @@
+<view class="page">
+  <text class="eyebrow">检查资料辅助理解</text>
+  <view class="hero">
+    <text class="title">把检查报告，讲成你听得懂的话。</text>
+    <text class="subtitle">上传报告照片或 PDF，整理原文并帮助你准备和医生沟通的问题。</text>
+  </view>
+
+  <view class="notice">
+    本服务用于辅助理解，不能替代医生诊断。请勿上传他人的检查资料。
+  </view>
+
+  <view class="card upload-card">
+    <view class="icon">▤</view>
+    <view>
+      <text class="card-title">检查报告</text>
+      <text class="muted">照片、扫描件或 PDF</text>
+    </view>
+    <button class="select-button" bindtap="chooseReport">选择报告</button>
+    <text wx:if="{{fileName}}" class="file-name">已选择：{{fileName}}</text>
+    <text wx:else class="muted">支持 JPG、PNG、PDF，最大 20 MB</text>
+  </view>
+
+  <button class="primary" bindtap="uploadReport" disabled="{{!selectedFile || uploading}}">
+    {{uploading ? '正在安全上传与读取…' : '整理报告'}}
+  </button>
+
+  <view class="card imaging-entry" bindtap="openImaging">
+    <view class="icon blue">◫</view>
+    <view>
+      <text class="card-title">医学影像查看</text>
+      <text class="muted">CT / MRI 影像将在受保护网页中查看</text>
+    </view>
+    <text class="arrow">›</text>
+  </view>
+
+  <view class="privacy-row">
+    <checkbox-group bindchange="togglePrivacy">
+      <checkbox checked="{{privacyAccepted}}" color="#156a5c" value="accepted" />
+    </checkbox-group>
+    <text>我已阅读并同意</text>
+    <text class="privacy-link" bindtap="openPrivacy">《隐私保护说明》</text>
+  </view>
+</view>

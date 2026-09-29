@@ -1,0 +1,16 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/result/result",
+    "pages/privacy/privacy",
+    "pages/imaging/imaging",
+    "pages/webview/webview"
+  ],
+  "window": {
+    "navigationBarTitleText": "影像知情",
+    "navigationBarBackgroundColor": "#f7f6f0",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f7f6f0"
+  },
+  "style": "v2"
+}

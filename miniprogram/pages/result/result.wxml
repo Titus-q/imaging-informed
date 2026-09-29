@@ -1,0 +1,73 @@
+<view class="page">
+  <text class="eyebrow">报告解读</text>
+
+  <!-- 解读中 -->
+  <view wx:if="{{interpreting}}" class="loading-box">
+    <text class="loading-title">正在整理你的报告…</text>
+    <text class="muted">通常需要 10–30 秒，请稍候</text>
+  </view>
+
+  <!-- 解读成功 -->
+  <block wx:if="{{!interpreting && interpretation}}">
+    <view class="notice disclaimer">{{interpretation.disclaimer}}</view>
+    <view wx:if="{{needsReview}}" class="notice">部分原文识别置信度较低，解读基于识别文字，请以医院正式报告为准。</view>
+
+    <view class="card">
+      <text class="section-title">一句话总结</text>
+      <text class="summary-text">{{interpretation.summary}}</text>
+    </view>
+
+    <view wx:if="{{interpretation.abnormal_items.length}}" class="card">
+      <text class="section-title">需要留意的项目</text>
+      <view wx:for="{{interpretation.abnormal_items}}" wx:key="index" class="abnormal-item level-{{item.level}}">
+        <view class="abnormal-head">
+          <text class="level-tag level-tag-{{item.level}}">{{item.level === 'high' ? '较重要' : item.level === 'medium' ? '需随访' : '轻微'}}</text>
+          <text class="abnormal-meaning">{{item.meaning}}</text>
+        </view>
+        <view class="quote-box">
+          <text class="quote-label">原文依据</text>
+          <text class="quote-text">「{{item.quote}}」</text>
+        </view>
+        <text wx:if="{{item.suggestion}}" class="suggestion">建议：{{item.suggestion}}</text>
+      </view>
+    </view>
+
+    <view wx:if="{{interpretation.line_explanations.length}}" class="card">
+      <text class="section-title">报告逐句解读</text>
+      <view wx:for="{{interpretation.line_explanations}}" wx:key="index" class="line-item">
+        <text class="line-quote">「{{item.quote}}」</text>
+        <text class="line-explain">{{item.explanation}}</text>
+      </view>
+    </view>
+
+    <view wx:if="{{interpretation.questions_for_doctor.length}}" class="card">
+      <text class="section-title">下次就诊可以问医生</text>
+      <view wx:for="{{interpretation.questions_for_doctor}}" wx:key="index" class="question-item">
+        <text class="question-index">{{index + 1}}</text>
+        <text class="question-text">{{item}}</text>
+      </view>
+    </view>
+
+    <button class="original-toggle" bindtap="toggleOriginal">
+      {{showOriginal ? '收起报告原文' : '查看报告原文（识别文字）'}}
+    </button>
+    <view wx:if="{{showOriginal}}" class="card">
+      <text class="section-title">识别到的原文</text>
+      <text class="report-text">{{fullText}}</text>
+    </view>
+
+    <view class="notice disclaimer">本解读由 AI 生成，仅供参考，不构成诊断或治疗建议。如有不适请及时就医。</view>
+  </block>
+
+  <!-- 解读失败：回退到原文展示 -->
+  <block wx:if="{{!interpreting && !interpretation}}">
+    <text class="title">请先核对原文</text>
+    <view class="notice">通俗解读暂不可用（{{interpretError}}）。<text class="retry-link" bindtap="retryInterpret">点击重试</text>，或先核对下方原文。</view>
+    <view wx:if="{{needsReview}}" class="notice">部分文字置信度较低，请以医院正式报告为准。</view>
+    <view class="card">
+      <text class="section-title">识别到的文字</text>
+      <text class="report-text">{{fullText}}</text>
+    </view>
+    <view class="notice">以上内容为机器识别的原始文字，不构成诊断。请以医院正式报告为准。</view>
+  </block>
+</view>

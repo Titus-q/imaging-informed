@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PatientReportInterpretation",
+  "type": "object",
+  "required": ["source_status", "study", "findings", "questions_for_clinician"],
+  "properties": {
+    "source_status": { "enum": ["verified", "needs_review", "unreadable"] },
+    "study": {
+      "type": "object",
+      "properties": {
+        "body_part": { "type": "string" },
+        "modality": { "type": "string" },
+        "report_date": { "type": "string" }
+      }
+    },
+    "plain_summary": { "type": "string", "description": "Non-diagnostic wording based solely on cited source text." },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["label", "plain_explanation", "evidence"],
+        "properties": {
+          "label": { "type": "string" },
+          "plain_explanation": { "type": "string" },
+          "evidence": {
+            "type": "object",
+            "required": ["quote", "page", "ocr_confidence"],
+            "properties": {
+              "quote": { "type": "string" },
+              "page": { "type": "integer", "minimum": 1 },
+              "ocr_confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+            }
+          }
+        }
+      }
+    },
+    "questions_for_clinician": { "type": "array", "items": { "type": "string" }, "maxItems": 5 }
+  }
+}

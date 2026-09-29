@@ -1,0 +1,17 @@
+[Unit]
+Description=Imaging-informed report OCR API
+After=network.target
+
+[Service]
+Type=simple
+# 改成你的运行用户和实际仓库路径
+User=admin
+WorkingDirectory=/home/admin/imaging-informed
+ExecStart=/home/admin/imaging-informed/.venv/bin/python -m uvicorn backend.main:app --host 0.0.0.0 --port 8000
+# LLM 配置（可选；不需要解读功能可删除下一行）
+EnvironmentFile=-/etc/imaging-ocr.env
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
