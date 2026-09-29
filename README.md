@@ -125,6 +125,8 @@ OneDNN 兼容性坑、swap 配置、systemd 常驻）见 **[docs/DEPLOY.md](docs
 - [ ] 结构化异常项与影像序列联动
 - [ ] MONAI Label / TotalSegmentator（需 GPU 与更严格的合规评估，远期）
 
+影像查看部分的完整规划（三档方案：资源需求、隐私风险、推进顺序）见 **[docs/OHIF-PLAN.md](docs/OHIF-PLAN.md)**。
+
 ## 贡献
 
 欢迎 Issue 和 PR。涉及医疗表述、隐私处理的改动请在 PR 中说明依据。
